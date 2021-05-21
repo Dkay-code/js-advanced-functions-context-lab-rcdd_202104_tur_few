@@ -58,8 +58,8 @@ function createTimeOutEvent (dateHour){
 };
 
 function hoursWorkedOnDate(date){
-  let timeIn = this.timeInEvents.filter(checkIn => checkIn.date === date);
-  let timeOut = this.timeOutEvents.filter(checkOut => checkOut.date === date);
+  let timeIn = this.timeInEvents.find(checkIn => checkIn.date === date);
+  let timeOut = this.timeOutEvents.find(checkOut => checkOut.date === date);
   return (parseInt(timeOut[0].hour)-parseInt(timeIn[0].hour))/100;
 }
 
