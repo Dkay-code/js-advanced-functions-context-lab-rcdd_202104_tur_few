@@ -64,14 +64,14 @@ function hoursWorkedOnDate(date){
 }
 
 function wagesEarnedOnDate (date){
-  let hoursWorked = hoursWorkedOnDate(date);
+  let hoursWorked = hoursWorkedOnDate(this, date);
   let rate  = this.payPerHour;
   return (parseInt(hoursWorked))*(parseInt(rate));
 }
 
 
 function calculatePayroll(employeeArr) {
-  return employeeArr.reduce((acc, payroll) => acc + allWagesFor(payroll),0);
+  return employeeArr.reduce((acc, payroll) => acc + allWagesFor.call(payroll),0);
 }
 
 function findEmployeeByFirstName (srcArray, firstName){
