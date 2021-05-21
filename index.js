@@ -44,14 +44,10 @@ function createTimeInEvent(date){
      return this;
  }
 
-function createTimeOutEvent (dateHour){
-  this.timeOutEvents.push({
-    type : "TimeOut",
-    hour : parseInt(dateHour.slice(10)),
-    date : dateHour.slice(0,10),
-  });
-  return this;
-};
+ function createTimeOutEvent(date){
+      this.timeOutEvents.push({ type: "TimeOut", hour: parseInt(date.slice(-4)), date: date.slice(0,-5) });
+      return this;
+  }
 
 function hoursWorkedOnDate(date){
   let timeIn = this.timeInEvents.find(checkIn => checkIn.date === date);
