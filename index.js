@@ -40,11 +40,7 @@ return arrays.map(element => element = createEmployeeRecord(element))
 
 
 function createTimeInEvent (dateHour){
-  this.timeInEvents.push({
-    type : "TimeIn",
-    hour : parseInt(dateHour.slice(10)),
-    date : dateHour.slice(0,10),
-  });
+  this.timeInEvents.push({type : "TimeIn", hour : parseInt(dateHour.slice(10)), date : dateHour.slice(0,10)});
   return this;
 };
 
