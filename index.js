@@ -48,14 +48,13 @@ function createTimeInEvent (dateHour){
   return this;
 };
 
-function createTimeOutEvent (employeeObject, dateHour = "YYYY-MM-DD HHMM"){
-  let obj = {
+function createTimeOutEvent (dateHour){
+  this.timeOutEvents.push({
     type : "TimeOut",
     hour : parseInt(dateHour.slice(10)),
     date : dateHour.slice(0,10),
-  };
-  employeeObject.timeOutEvents.push(obj);
-  return employeeObject;
+  });
+  return this;
 };
 
 function hoursWorkedOnDate(employeeObject, date="YYYY-MM-DD"){
