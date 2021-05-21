@@ -39,14 +39,13 @@ return arrays.map(element => element = createEmployeeRecord(element))
 };
 
 
-function createTimeInEvent (employeeObject, dateHour = "YYYY-MM-DD HHMM"){
-  let obj = {
+function createTimeInEvent (dateHour = "YYYY-MM-DD HHMM"){
+  this.timeInEvents.push({
     type : "TimeIn",
     hour : parseInt(dateHour.slice(10)),
     date : dateHour.slice(0,10),
-  };
-  this.timeInEvents.push(obj);
-  return employeeObject;
+  });
+  return this;
 };
 
 function createTimeOutEvent (employeeObject, dateHour = "YYYY-MM-DD HHMM"){
