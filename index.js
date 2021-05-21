@@ -66,7 +66,7 @@ function hoursWorkedOnDate(date){
 function wagesEarnedOnDate (date){
   let hoursWorked = hoursWorkedOnDate(this, date);
   let rate  = this.payPerHour;
-  return (parseInt(hoursWorked))*(parseInt(rate));
+  return hoursWorked*rate;
 }
 
 
