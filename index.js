@@ -57,15 +57,15 @@ function createTimeOutEvent (dateHour){
   return this;
 };
 
-function hoursWorkedOnDate(employeeObject, date="YYYY-MM-DD"){
-  let timeIn = employeeObject.timeInEvents.filter(checkIn => checkIn.date === date);
-  let timeOut = employeeObject.timeOutEvents.filter(checkOut => checkOut.date === date);
+function hoursWorkedOnDate(date){
+  let timeIn = this.timeInEvents.filter(checkIn => checkIn.date === date);
+  let timeOut = this.timeOutEvents.filter(checkOut => checkOut.date === date);
   return (parseInt(timeOut[0].hour)-parseInt(timeIn[0].hour))/100;
 }
 
-function wagesEarnedOnDate (employeeObject, date="YYYY-MM-DD"){
-  let hoursWorked = hoursWorkedOnDate(employeeObject, date);
-  let rate  = employeeObject.payPerHour;
+function wagesEarnedOnDate (date){
+  let hoursWorked = hoursWorkedOnDate(date);
+  let rate  = this.payPerHour;
   return (parseInt(hoursWorked))*(parseInt(rate));
 }
 
