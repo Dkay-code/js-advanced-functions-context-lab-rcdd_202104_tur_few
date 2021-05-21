@@ -60,13 +60,11 @@ function createTimeOutEvent (dateHour){
 function hoursWorkedOnDate(date){
   let timeIn = this.timeInEvents.find(checkIn => checkIn.date === date);
   let timeOut = this.timeOutEvents.find(checkOut => checkOut.date === date);
-  return (timeOut.hour-timeIn.hour)/100;
+  return (timeOut.hour - timeIn.hour) / 100;
 }
 
 function wagesEarnedOnDate (date){
-  let hoursWorked = hoursWorkedOnDate(this, date);
-  let rate  = this.payPerHour;
-  return hoursWorked*rate;
+  return this.payPerHour * hoursWorkedOnDate.call(this, date);
 }
 
 
